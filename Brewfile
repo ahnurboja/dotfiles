@@ -9,3 +9,4 @@ brew "coreutils"
 brew "stow" # Great for managing symlinks
 brew "gemini-cli"
 brew "gh"
+brew "romkatv/powerlevel10k/powerlevel10k"
