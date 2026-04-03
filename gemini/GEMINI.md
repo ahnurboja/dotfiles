@@ -1,6 +1,6 @@
 # Gemini CLI Operational Context: Dotfiles
 
-This file defines the foundational architecture and maintenance protocols for this repository. Adhere to these mandates for all modifications.
+This file defines the foundational architecture and maintenance protocols for the **dotfiles repository**. These mandates apply ONLY when the agent is performing tasks related to environment configuration or modifying the contents of `~/Projects/dotfiles`.
 
 ## Architectural Mandates
 - **Source of Truth:** All configuration files MUST reside in a subdirectory (Stow Package) within this repository. NEVER modify files in the home directory (`~`) directly.
@@ -10,16 +10,24 @@ This file defines the foundational architecture and maintenance protocols for th
   - Files inside a package are mirrored exactly to the home directory (e.g., `zsh/.zshrc` -> `~/.zshrc`).
 
 ## Maintenance Protocols
-### 1. Adding a New Tool/Configuration
-When tasked with adding a new tool (e.g., `tmux`, `nvim`):
-1. **Identify Type:** Determine if it's a Homebrew Formula or Cask.
-2. **Update Brewfile:** Append the entry to `Brewfile`.
-3. **Create Package:** Create a new directory (e.g., `tmux/`) and place the config file(s) inside.
-4. **Update setup.sh:** Add the new package name to the `stow` command list in `setup.sh`.
 
-### 2. Modifying Existing Configuration
-- Always locate the file within its respective package directory (e.g., `git/.gitconfig`) before editing.
-- After a structural change (moving/renaming files), verify the `stow` command in `setup.sh` is still accurate.
+### 1. Adding/Modifying Tools
+When tasked with adding a new tool or changing configuration:
+1.  **Modify Source:** Make all changes inside the repository packages (e.g., `zsh/`, `git/`).
+2.  **Brewfile:** If it's a new tool, add the formula/cask to `Brewfile`.
+3.  **setup.sh Updates:** 
+    - If a new package directory is created, add it to the `stow` command list.
+    - If the tool requires post-install steps (e.g., VS Code extensions, initialization scripts), add those steps to the end of `setup.sh`.
+4.  **Apply Changes:** Run `./setup.sh` to ensure symlinks are updated and post-install steps are executed.
+5.  **Documentation:** Update `README.md` if the change adds new functionality or tools that the user should be aware of.
+
+### 2. Synchronization (Pushing)
+- **Scope:** This protocol applies ONLY to the `dotfiles` repository.
+- **Action:** Every successful modification to this repository (code change + verification) MUST be committed and pushed to the remote repository (`origin main`) automatically.
+- Use descriptive commit messages (e.g., "Add tmux package and update setup.sh").
+
+### 3. Verification
+- After running `./setup.sh`, verify that the symlinks in `~` point correctly to the files in this repository.
 
 ## Mapping Reference
 - **Zsh:** `zsh/.zshrc` (mirrors to `~/.zshrc`)
