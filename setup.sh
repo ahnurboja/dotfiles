@@ -24,6 +24,13 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
+# Link Powerlevel10k theme from Homebrew to Oh My Zsh custom themes
+if [ -d "/opt/homebrew/opt/powerlevel10k" ]; then
+    echo "Linking Powerlevel10k theme..."
+    mkdir -p "$HOME/.oh-my-zsh/custom/themes"
+    ln -sfn "/opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/powerlevel10k.zsh-theme"
+fi
+
 # 5. Install VS Code extensions
 if command -v code >/dev/null 2>&1; then
     echo "Installing Gemini CLI Companion for VS Code..."

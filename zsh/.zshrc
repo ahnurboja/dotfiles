@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Use Powerlevel10k for a high-contrast, informative single-line prompt.
 # Note: You may be prompted to run `p10k configure` on first launch.
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="powerlevel10k"
 
 # Standard Oh My Zsh plugins.
 plugins=(git)
