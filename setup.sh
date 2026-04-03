@@ -28,7 +28,7 @@ fi
 if [ -d "/opt/homebrew/opt/powerlevel10k" ]; then
     echo "Linking Powerlevel10k theme..."
     mkdir -p "$(pwd)/zsh/.oh-my-zsh/custom/themes"
-    ln -sfn "/opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme" "$(pwd)/zsh/.oh-my-zsh/custom/themes/powerlevel10k.zsh-theme"
+    ln -sfn "/opt/homebrew/opt/powerlevel10k" "$(pwd)/zsh/.oh-my-zsh/custom/themes/powerlevel10k"
 fi
 
 # 5. Install VS Code extensions
