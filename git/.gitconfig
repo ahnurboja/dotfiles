@@ -18,5 +18,8 @@
     editor = code --wait
     excludesfile = ~/.gitignore_global
 
+[credential]
+    helper = osxkeychain
+
 [init]
     defaultBranch = main

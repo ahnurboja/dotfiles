@@ -25,10 +25,10 @@ fi
 
 # Link Powerlevel10k theme from Homebrew to the moved Oh My Zsh custom themes
 # Note: Path is now internal to our dotfiles zsh package
-if [ -d "/opt/homebrew/opt/powerlevel10k" ]; then
+if [ -d "/opt/homebrew/opt/powerlevel10k/share/powerlevel10k" ]; then
     echo "Linking Powerlevel10k theme..."
     mkdir -p "$(pwd)/zsh/.oh-my-zsh/custom/themes"
-    ln -sfn "/opt/homebrew/opt/powerlevel10k" "$(pwd)/zsh/.oh-my-zsh/custom/themes/powerlevel10k"
+    ln -sfn "/opt/homebrew/opt/powerlevel10k/share/powerlevel10k" "$(pwd)/zsh/.oh-my-zsh/custom/themes/powerlevel10k"
 fi
 
 # 5. Install VS Code extensions

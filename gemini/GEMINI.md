@@ -2,6 +2,10 @@
 
 This file defines the foundational architecture and maintenance protocols for the **dotfiles repository**. These mandates apply ONLY when the agent is performing tasks related to environment configuration or modifying the contents of `~/Projects/dotfiles`.
 
+## User Identity
+- **Name:** ahnurboja
+- **Email:** ahnurboja@gmail.com
+
 ## Architectural Mandates
 - **Source of Truth:** All configuration files MUST reside in a subdirectory (Stow Package) within this repository. NEVER modify files in the home directory (`~`) directly.
 - **Symlink Management:** Use [GNU Stow] for all symlinking. The `setup.sh` script is the orchestrator for these links.
