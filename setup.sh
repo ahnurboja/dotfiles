@@ -18,17 +18,17 @@ brew bundle --file=./Brewfile
 echo "Creating symlinks with Stow..."
 stow -t ~ zsh git gemini
 
-# 4. Install Oh My Zsh if it's not already installed
+# 4. Install Oh My Zsh if it's not already installed (this step is now handled by stow)
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Installing Oh My Zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    echo "Oh My Zsh directory not found in home folder after stow. Something is wrong."
 fi
 
-# Link Powerlevel10k theme from Homebrew to Oh My Zsh custom themes
+# Link Powerlevel10k theme from Homebrew to the moved Oh My Zsh custom themes
+# Note: Path is now internal to our dotfiles zsh package
 if [ -d "/opt/homebrew/opt/powerlevel10k" ]; then
     echo "Linking Powerlevel10k theme..."
-    mkdir -p "$HOME/.oh-my-zsh/custom/themes"
-    ln -sfn "/opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/powerlevel10k.zsh-theme"
+    mkdir -p "$(pwd)/zsh/.oh-my-zsh/custom/themes"
+    ln -sfn "/opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme" "$(pwd)/zsh/.oh-my-zsh/custom/themes/powerlevel10k.zsh-theme"
 fi
 
 # 5. Install VS Code extensions
