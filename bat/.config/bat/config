@@ -1,0 +1,4 @@
+# Set default options
+--theme="TwoDark"
+--style="numbers,changes,header"
+--paging=never

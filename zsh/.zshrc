@@ -14,5 +14,14 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="code ~/Projects/dotfiles/zsh/.zshrc"
 alias dotfiles="cd ~/Projects/dotfiles"
 
+# Modern CLI tools
+alias ls='eza --icons'
+alias cat='bat'
+alias find='fd'
+alias grep='rg'
+
+# FZF initialization
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
