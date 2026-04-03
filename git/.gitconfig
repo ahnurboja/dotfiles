@@ -1,0 +1,22 @@
+[user]
+    name = ahnurboja
+    email = ahnurboja@gmail.com
+
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+
+[color]
+    ui = auto
+
+[core]
+    editor = code --wait
+    excludesfile = ~/.gitignore_global
+
+[init]
+    defaultBranch = main
