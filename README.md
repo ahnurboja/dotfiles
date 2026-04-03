@@ -14,6 +14,13 @@ This repository uses [GNU Stow](https://www.gnu.org/software/stow/) to manage sy
 - **Editor:** [Visual Studio Code](https://code.visualstudio.com/) with a CLI-integrated workflow.
 - **CLI Tools:** [gemini-cli](https://github.com/google/gemini-cli), [GitHub CLI (gh)](https://cli.github.com/), `git`, `coreutils`, and more.
 
+## Package Documentation
+
+Each configuration directory contains its own `README.md` for specific tool details:
+- [Zsh](./zsh/README.md)
+- [Tmux](./tmux/README.md)
+- [Bat](./bat/README.md)
+
 ## Quick Start
 
 To set up a new machine, clone this repository and run the setup script:

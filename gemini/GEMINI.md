@@ -23,7 +23,9 @@ When tasked with adding a new tool or changing configuration:
     - If a new package directory is created, add it to the `stow` command list.
     - If the tool requires post-install steps (e.g., VS Code extensions, initialization scripts), add those steps to the end of `setup.sh`.
 4.  **Apply Changes:** Run `./setup.sh` to ensure symlinks are updated and post-install steps are executed.
-5.  **Documentation:** Update `README.md` if the change adds new functionality or tools that the user should be aware of.
+5.  **Documentation:** 
+    - Create/update a `README.md` within the package directory detailing configuration details.
+    - Update the root `README.md` to index the new documentation.
 
 ### 2. Synchronization (Pushing)
 - **Scope:** This protocol applies ONLY to the `dotfiles` repository.
