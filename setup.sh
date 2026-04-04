@@ -16,7 +16,7 @@ brew bundle --file=./Brewfile
 # 3. Create symlinks using GNU Stow
 # Stow the 'zsh', 'git', and 'gemini' packages (their contents)
 echo "Creating symlinks with Stow..."
-stow -t ~ zsh git gemini tmux bat fzf
+stow -t ~ zsh git gemini tmux bat fzf gemini-cli
 
 # 4. Install Oh My Zsh if it's not already installed (this step is now handled by stow)
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
