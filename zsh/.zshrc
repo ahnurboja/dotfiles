@@ -26,18 +26,19 @@ alias grep='rg'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Quota switching functions
-function gq1() {
-  export GEMINI_API_KEY=$(cat ~/gemini-accounts/quota-1/.env | cut -d= -f2)
-  echo "Switched to Gemini Account 1 (Quota 1)"
-}
 
-function gq2() {
-  export GEMINI_API_KEY=$(cat ~/gemini-accounts/quota-2/.env | cut -d= -f2)
-  echo "Switched to Gemini Account 2 (Quota 2)"
-}
+# --- Load your local keys ---
+if [ -f "$HOME/.api-keys" ]; then
+    source "$HOME/.api-keys"
+fi
 
-function gmain() {
-  unset GEMINI_API_KEY
-  echo "Switched back to Main OAuth Account"
-}
+# --- CLAUDE CODE x DEEPSEEK SETUP ---
+
+# --- Map them to Claude Code (DeepSeek Bridge) ---
+export ANTHROPIC_AUTH_TOKEN="$DEEPSEEK_API_KEY"
+export ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
+export ANTHROPIC_MODEL="deepseek-reasoner"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek-chat"
+
+# --- Safety Cleanup ---
+unset ANTHROPIC_API_KEY

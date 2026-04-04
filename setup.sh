@@ -14,9 +14,9 @@ brew update
 brew bundle --file=./Brewfile
 
 # 3. Create symlinks using GNU Stow
-# Stow the 'zsh', 'git', and 'gemini' packages (their contents)
+# Stow the 'zsh', 'git', and other packages (their contents)
 echo "Creating symlinks with Stow..."
-stow -t ~ zsh git gemini tmux bat fzf gemini-cli
+stow -t ~ zsh git tmux bat fzf claude-config
 
 # 4. Install Oh My Zsh if it's not already installed (this step is now handled by stow)
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -31,10 +31,16 @@ if [ -d "/opt/homebrew/opt/powerlevel10k/share/powerlevel10k" ]; then
     ln -sfn "/opt/homebrew/opt/powerlevel10k/share/powerlevel10k" "$(pwd)/zsh/.oh-my-zsh/custom/themes/powerlevel10k"
 fi
 
-# 5. Install VS Code extensions
-if command -v code >/dev/null 2>&1; then
-    echo "Installing Gemini CLI Companion for VS Code..."
-    code --install-extension google.gemini-cli-vscode-ide-companion
+# 5. Install Claude Code globally if not installed
+if command -v npm >/dev/null 2>&1; then
+    if ! command -v claude >/dev/null 2>&1; then
+        echo "Installing Claude Code via npm..."
+        npm install -g @anthropic-ai/claude-code
+    else
+        echo "Claude Code is already installed."
+    fi
+else
+    echo "npm not found. Claude Code installation skipped."
 fi
 
 echo "Setup complete! Please restart your terminal."

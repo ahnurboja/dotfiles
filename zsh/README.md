@@ -12,12 +12,15 @@ This package manages the Zsh shell environment, including the Oh My Zsh framewor
   - `find='fd'` (via fd)
   - `grep='rg'` (via ripgrep)
 - **FZF:** Initialized for fuzzy-finding in the terminal.
+- **AI CLI:** Configured for [Claude Code](https://claude.com/claude-code) with DeepSeek API bridge.
 
-## Gemini Quota Management
-Custom functions to switch between Gemini API quotas:
-- `gq1`: Switches to Gemini Account 1 (Quota 1).
-- `gq2`: Switches to Gemini Account 2 (Quota 2).
-- `gmain`: Switches back to the default Main OAuth Account.
+## AI CLI Integration
+The `.zshrc` configures Claude Code to use DeepSeek's API:
+- Claude Code is automatically installed via npm when running `./setup.sh`
+- Maps `DEEPSEEK_API_KEY` to `ANTHROPIC_AUTH_TOKEN`
+- Sets base URL to DeepSeek's Anthropic-compatible endpoint
+- Uses `deepseek-reasoner` as primary model
+- API keys are loaded from `~/.api-keys` (excluded from git)
 
 ## Usage
 - Run `p10k configure` to customize your prompt.

@@ -1,0 +1,106 @@
+{
+  "project": {
+    "name": "dotfiles",
+    "description": "Personal configuration and environment bootstrapper for macOS using GNU Stow and Homebrew",
+    "author": "ahnurboja",
+    "email": "ahnurboja@gmail.com"
+  },
+  "structure": {
+    "packages": [
+      {
+        "name": "zsh",
+        "path": "zsh/",
+        "description": "Zsh shell configuration with Oh My Zsh, Powerlevel10k, and Claude Code + DeepSeek integration",
+        "keyFiles": [".zshrc", ".oh-my-zsh/custom/themes/powerlevel10k"]
+      },
+      {
+        "name": "git",
+        "path": "git/",
+        "description": "Git configuration with helpful aliases",
+        "keyFiles": [".gitconfig"]
+      },
+      {
+        "name": "tmux",
+        "path": "tmux/",
+        "description": "Tmux configuration for session management",
+        "keyFiles": [".tmux.conf"]
+      },
+      {
+        "name": "bat",
+        "path": "bat/",
+        "description": "Bat configuration for syntax highlighting",
+        "keyFiles": []
+      },
+      {
+        "name": "fzf",
+        "path": "fzf/",
+        "description": "FZF configuration for fuzzy finding",
+        "keyFiles": []
+      },
+      {
+        "name": "claude-config",
+        "path": "claude-config/",
+        "description": "Global Claude configuration files",
+        "keyFiles": [".claude.md", ".claude-settings.json"]
+      }
+    ],
+    "keyFiles": [
+      "Brewfile",
+      "setup.sh",
+      "README.md",
+      ".gitignore"
+    ]
+  },
+  "commonCommands": {
+    "setup": "./setup.sh",
+    "installClaudeCode": "npm install -g @anthropic-ai/claude-code",
+    "addApiKey": "echo 'export DEEPSEEK_API_KEY=\"your-key-here\"' >> ~/.api-keys",
+    "zshconfig": "code ~/Projects/dotfiles/zsh/.zshrc",
+    "dotfiles": "cd ~/Projects/dotfiles",
+    "p10kConfigure": "p10k configure",
+    "tmuxNewSession": "tmux new -s <name>",
+    "tmuxListSessions": "tmux ls",
+    "tmuxAttach": "tmux a -t <name>"
+  },
+  "aliases": {
+    "ls": "eza --icons",
+    "cat": "bat",
+    "find": "fd",
+    "grep": "rg",
+    "zshconfig": "code ~/Projects/dotfiles/zsh/.zshrc",
+    "dotfiles": "cd ~/Projects/dotfiles"
+  },
+  "aiSetup": {
+    "tool": "Claude Code with DeepSeek API bridge",
+    "npmPackage": "@anthropic-ai/claude-code",
+    "environmentVariables": {
+      "ANTHROPIC_AUTH_TOKEN": "$DEEPSEEK_API_KEY",
+      "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
+      "ANTHROPIC_MODEL": "deepseek-reasoner",
+      "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek-chat"
+    },
+    "apiKeyFile": "~/.api-keys",
+    "apiKeyVariable": "DEEPSEEK_API_KEY",
+    "note": "ANTHROPIC_API_KEY is automatically unset to prevent conflicts"
+  },
+  "stowConfiguration": {
+    "command": "stow -t ~ zsh git tmux bat fzf claude-config",
+    "packages": ["zsh", "git", "tmux", "bat", "fzf", "claude-config"],
+    "target": "~"
+  },
+  "git": {
+    "aliases": {
+      "st": "status",
+      "co": "checkout",
+      "br": "branch",
+      "hist": "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+    }
+  },
+  "importantNotes": [
+    "The ~/.api-keys file is excluded from version control (.gitignore) to keep API keys private",
+    "Claude Code is automatically installed via npm when running ./setup.sh if not already present",
+    "Node.js is installed via Homebrew (Brewfile) to provide npm for Claude Code installation",
+    "All configuration files are symlinked to home directory using GNU Stow",
+    "After setup, restart terminal for changes to take effect"
+  ]
+}

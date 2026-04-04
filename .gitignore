@@ -1,3 +1,6 @@
 # Ignore the core Oh My Zsh framework files (to keep repo small)
 zsh/.oh-my-zsh/*
 !zsh/.oh-my-zsh/custom/
+
+# Ignore local API keys file
+.api-keys
