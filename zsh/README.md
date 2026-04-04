@@ -13,6 +13,12 @@ This package manages the Zsh shell environment, including the Oh My Zsh framewor
   - `grep='rg'` (via ripgrep)
 - **FZF:** Initialized for fuzzy-finding in the terminal.
 
+## Gemini Quota Management
+Custom functions to switch between Gemini API quotas:
+- `gq1`: Switches to Gemini Account 1 (Quota 1).
+- `gq2`: Switches to Gemini Account 2 (Quota 2).
+- `gmain`: Switches back to the default Main OAuth Account.
+
 ## Usage
 - Run `p10k configure` to customize your prompt.
 - Use `zshconfig` to quickly open this `.zshrc` in VS Code.

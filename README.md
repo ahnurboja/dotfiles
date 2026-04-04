@@ -12,7 +12,7 @@ This repository uses [GNU Stow](https://www.gnu.org/software/stow/) to manage sy
 - **Git:** Optimized `.gitconfig` with helpful aliases (`st`, `co`, `br`, `hist`).
 - **Terminal:** [iTerm2](https://iterm2.com/) for a better terminal experience.
 - **Editor:** [Visual Studio Code](https://code.visualstudio.com/) with a CLI-integrated workflow.
-- **CLI Tools:** [gemini-cli](https://github.com/google/gemini-cli), [GitHub CLI (gh)](https://cli.github.com/), `git`, `coreutils`, and more.
+- **CLI Tools:** [gemini-cli](https://github.com/google/gemini-cli), [aichat](https://github.com/sigoden/aichat), [GitHub CLI (gh)](https://cli.github.com/), `git`, `coreutils`, and more.
 
 ## Package Documentation
 
